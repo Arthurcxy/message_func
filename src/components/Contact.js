@@ -110,20 +110,22 @@ const Contact = () => {
           <Divider/>
           
          
-          <Stack direction='row' alignItems={'center'} justifyContent='space-between' >
+          <Stack direction='row' alignItems={'center'} justifyContent='space-between'>
             <Stack direction='row' spacing={2} alignItems={'center'}>
               <Star size={21}/>
-              <Typography variant='subtitle2'>Starred Messages</Typography>
+              <Typography variant='subtitle2' fullWidth>Starred Messages</Typography>
             </Stack>
             <IconButton onClick={()=>{
               dispatch(UpdateSidebarType('STARRED'))
-            }}><CaretRight/></IconButton>
+            }}>
+              <CaretRight/>
+            </IconButton>
           </Stack>
           <Divider/>
           <Stack direction='row' alignItems={'center'} justifyContent='space-between'>
             <Stack direction='row' spacing={2} alignItems={'center'}>
               <Bell size={21}/>
-              <Typography variant='subtitle2'>Mute Notifications</Typography>
+              <Typography variant='subtitle2' >Mute Notifications</Typography>
             </Stack>
             <AntSwitch/>
           </Stack>
