@@ -95,9 +95,9 @@ const Contact = () => {
         {/* Body */}
         <Stack className='scrollbar'  sx={{height:'100%', position:'relative', flexGrow:1, overflowY:'scroll'}} p={3}
         spacing={3}>
-          <Stack alignItems={'center'} direction='row' spacing={2}>
+          <Stack alignItems={'center'} direction='row' spacing={2} justifyContent='space-between'>
             <Avatar src={faker.image.avatar()} alt={faker.name.firstName} sx={{height:64, width:64}}/>
-            <Stack spacing={0.5}>
+            <Stack spacing={1}>
               <Typography variant='article' fontWeight={600}>
                 {faker.name.fullName()}
               </Typography>
@@ -106,41 +106,11 @@ const Contact = () => {
               </Typography>
             </Stack>
           </Stack>
-          <Stack direction='row' alignItems='center' justifyContent='space-evenly'>
-            <Stack spacing={1} alignItems='center' >
-              <IconButton>
-                <Phone/>
-              </IconButton>
-              <Typography variant='overline'>Voice</Typography>
-            </Stack>
-            <Stack spacing={1} alignItems='center' >
-              <IconButton>
-                <VideoCamera/>
-              </IconButton>
-              <Typography variant='overline'>Video</Typography>
-            </Stack>
-          </Stack>
+          
           <Divider/>
-          <Stack spacing={0.5}>
-            <Typography variant='article'>About</Typography>
-            <Typography variant='body2'>Hi I'm working</Typography>
-          </Stack>
-          <Divider/>
+          
+         
           <Stack direction='row' alignItems={'center'} justifyContent='space-between' >
-            <Typography variant='subtitle2'>Media, Links & Docs</Typography>
-            <Button onClick={()=>{
-              dispatch(UpdateSidebarType('SHARED'))
-            }} endIcon={<CaretRight/>}>401</Button>
-          </Stack>
-          <Stack direction='row' spacing={2} alignItems={'center'}>
-            {[1,2,3].map((el)=>(
-              <Box>
-                <img src={faker.image.food()} alt={faker.name.fullName()}/>
-              </Box>
-            ))}
-          </Stack>
-          <Divider/>
-          <Stack direction='row' alignItems={'center'} justifyContent='space-between'>
             <Stack direction='row' spacing={2} alignItems={'center'}>
               <Star size={21}/>
               <Typography variant='subtitle2'>Starred Messages</Typography>
@@ -158,14 +128,7 @@ const Contact = () => {
             <AntSwitch/>
           </Stack>
           <Divider/>
-          <Typography>1 group in common</Typography>
-          <Stack direction='row' spacing={2} alignItems={'center'}>
-            <Avatar src={faker.image.avatar()} alt={faker.name.fullName}/>
-            <Stack spacing={0.5}>
-              <Typography variant='subtitle2' >React Developers</Typography>
-              <Typography variant='caption' >Kaveena, Pavithra, Ayesha, You</Typography>
-            </Stack>
-          </Stack>
+          
           <Stack direction='row' alignItems={'center'} spacing={2}>
             <Button onClick={()=>{setOpenBlock(true)}} startIcon={<Prohibit/>} fullWidth variant='outlined'>
               Block
