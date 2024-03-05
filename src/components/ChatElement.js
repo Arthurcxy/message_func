@@ -32,8 +32,15 @@ const ChatElement = ({id,name, img, msg, time,online, unread}) => {
               <Typography sx={{fontWeight:600}} variant='caption'>
                 {time}
               </Typography>
-              <Badge color='primary' badgeContent={unread}>
-  
+              <Badge
+                sx={{
+                  '& .MuiBadge-badge': {
+                    backgroundColor: '#5955B3', // Your custom background color
+                    color: 'white' // Your custom text color
+                  }
+                }}
+                badgeContent={unread}
+              >
               </Badge>
             </Stack>
           

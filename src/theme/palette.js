@@ -49,6 +49,15 @@ const ERROR = {
   dark: '#B72136',
   darker: '#7A0C2E',
 };
+const SPERO = {
+  lighter: "#5955B3",
+  light: "#5955B3",
+  main: "#5955B3",
+  msgback : "#F5F5F7", 
+  dark: "#5955B3",
+  darker: "#5955B3",
+  contrastText: '#fff'
+};
 
 const GREY = {
   0: '#FFFFFF',
@@ -95,6 +104,7 @@ const COMMON = {
   success: { ...SUCCESS, contrastText: GREY[800] },
   warning: { ...WARNING, contrastText: GREY[800] },
   error: { ...ERROR, contrastText: '#fff' },
+  spero: SPERO,
   grey: GREY,
   gradients: GRADIENTS,
   chart: CHART_COLORS,

@@ -9,8 +9,8 @@ const DocMsg = ({el,menu}) => {
   return (
     <Stack direction='row' justifyContent={el.incoming ? 'start' : 'end'}>
         <Box p={1.5} sx={{
-                backgroundColor: el.incoming ? theme.palette.background.default :
-                    theme.palette.primary.main, borderRadius: 1.5, width: 'max-content'
+                backgroundColor: el.incoming ? theme.palette.spero.msgback :
+                theme.palette.spero.main, borderRadius: 1.5, width: 'max-content'
             }}>
         <Stack spacing={2}>
             <Stack p={2} spacing={3} direction='row' alignItems='center' 
@@ -39,8 +39,8 @@ const LinkMsg = ({el,menu}) => {
   return (
     <Stack direction='row' justifyContent={el.incoming ? 'start' : 'end'}>
         <Box p={1.5} sx={{
-                backgroundColor: el.incoming ? theme.palette.background.default :
-                    theme.palette.primary.main, borderRadius: 1.5, width: 'max-content'
+                backgroundColor: el.incoming ? theme.palette.spero.msgback :
+                theme.palette.spero.main, borderRadius: 1.5, width: 'max-content'
             }}>
         <Stack spacing={2}>
             <Stack p={2} spacing={3} alignItems='start'
@@ -67,8 +67,8 @@ const ReplyMsg = ({el, menu}) => {
   return (
     <Stack direction='row' justifyContent={el.incoming ? 'start' : 'end'}>
         <Box p={1.5} sx={{
-                backgroundColor: el.incoming ? theme.palette.background.default :
-                    theme.palette.primary.main, borderRadius: 1.5, width: 'max-content'
+                backgroundColor: el.incoming ? theme.palette.spero.msgback :
+                theme.palette.spero.main, borderRadius: 1.5, width: 'max-content'
             }}>
         <Stack spacing={2}>
             <Stack p={2} direction='column' spacing={3} alignItems='center'
@@ -92,8 +92,8 @@ const MediaMsg = ({el,menu}) => {
   return (
     <Stack direction='row' justifyContent={el.incoming ? 'start' : 'end'}>
         <Box p={1.5} sx={{
-                backgroundColor: el.incoming ? theme.palette.background.default :
-                    theme.palette.primary.main, borderRadius: 1.5, width: 'max-content'
+                backgroundColor: el.incoming ? theme.palette.spero.msgback :
+                theme.palette.spero.main, borderRadius: 1.5, width: 'max-content'
             }}>
                 <Stack spacing={1}>
                     <img src={el.img} alt={el.message} style={{maxHeight: 210 , borderRadius:'10px'}}/>
@@ -112,8 +112,8 @@ const TextMsg = ({el,menu}) => {
     return (
         <Stack direction='row' justifyContent={el.incoming ? 'start' : 'end'}>
             <Box p={1.5} sx={{
-                backgroundColor: el.incoming ? theme.palette.background.default :
-                    theme.palette.primary.main, borderRadius: 1.5, width: 'max-content'
+                backgroundColor: el.incoming ? theme.palette.spero.msgback :
+                theme.palette.spero.main, borderRadius: 1.5, width: 'max-content'
             }}>
                 <Typography variant='body2' color={el.incoming ? theme.palette.text : '#fff'}>
                     {el.message}

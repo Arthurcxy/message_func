@@ -17,7 +17,8 @@ const GeneralApp = () => {
         <Chats  />
       </Box>
       <Box sx={{ height: '100%', width: '100%',
-       backgroundColor: theme.palette.mode === 'light' ? '#F0F4FA' : theme.palette.background.default }}>
+      // 聊天內容壁紙的顏色
+       backgroundColor: theme.palette.mode === 'light' ? '#ffffff' : theme.palette.background.default }}>
       {/* Conversation */}
       <Conversation/>
       </Box>
