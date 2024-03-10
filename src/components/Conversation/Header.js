@@ -1,5 +1,6 @@
 import { Avatar, Box, Typography,IconButton, Divider,Stack, } from '@mui/material'
-import { CaretDown, MagnifyingGlass, Phone,VideoCamera } from 'phosphor-react'
+import {MagnifyingGlass, Phone,VideoCamera } from 'phosphor-react'
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import React from 'react';
 import { useTheme } from "@mui/material/styles";
 import { faker } from '@faker-js/faker';
@@ -43,7 +44,7 @@ const Header = () => {
             </IconButton>
             <Divider orientation='vertical' flexItem/>
             <IconButton>
-                <CaretDown/>
+                <MoreVertIcon/>
             </IconButton>
         </Stack>
     </Stack>

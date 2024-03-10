@@ -41,8 +41,8 @@ const Message = ({menu,messageObj}) => {
                                 
                             case 'link':
                                 return <LinkMsg el={el} menu={menu}/>
-                            case 'reply':
-                                return <ReplyMsg el={el} menu={menu}/>
+                            {/* case 'reply':
+                                return <ReplyMsg el={el} menu={menu}/> */}
                         
                             default:
                                return <TextMsg el={el} menu={menu}/>

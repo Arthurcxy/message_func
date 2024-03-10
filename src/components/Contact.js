@@ -132,12 +132,40 @@ const Contact = () => {
           <Divider/>
           
           <Stack direction='row' alignItems={'center'} spacing={2}>
-            <Button onClick={()=>{setOpenBlock(true)}} startIcon={<Prohibit/>} fullWidth variant='outlined'>
-              Block
-            </Button >
-            <Button onClick={()=>{setOpenDelete(true)}} startIcon={<Trash/>} fullWidth variant='outlined'>
-              Delete
-            </Button>
+          <Button
+            onClick={() => { setOpenBlock(true); }}
+            startIcon={<Prohibit color="#5955B3" />}
+            fullWidth
+            variant="outlined"
+            sx={{
+              color: "#5955B3",
+              borderColor: "#5955B3",
+              '&:hover': {
+                borderColor: "#5955B3", // On hover, maintain the same border color
+                backgroundColor: "transparent"
+              }
+            }}
+          >
+            Block
+          </Button>
+
+          <Button
+            onClick={() => { setOpenDelete(true); }}
+            startIcon={<Trash color="#5955B3" />}
+            fullWidth
+            variant="outlined"
+            sx={{
+              color: "#5955B3",
+              borderColor: "#5955B3",
+              '&:hover': {
+                borderColor: "#5955B3", // On hover, maintain the same border color
+                backgroundColor: "transparent"
+              }
+            }}
+          >
+            Delete
+          </Button>
+
           </Stack>
         </Stack>
       </Stack>
