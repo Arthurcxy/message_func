@@ -1,12 +1,29 @@
 import {  Box, Stack} from '@mui/material';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { useTheme } from "@mui/material/styles";
 import Header from './Header';
 import Footer from './Footer';
 import Message from './Message';
 
-const Conversation = () => {
+const Conversation = (props) => {
+  console.log('props----->',props);
     const theme = useTheme();
+    const message = useRef()
+    const [messageObj,setMessageObj] = useState()
+    const pushMessage = (value)=>{
+
+    }
+    const toMessage = (value)=>{
+      setMessageObj(
+        {
+          type: "msg",
+          message: value,
+          incoming: false,
+          outgoing: true,
+        },
+      )
+      console.log(message?.current?.test,value);
+    }
   return (
     <Stack height={'100%'} maxHeight={'100vh'} width={'auto'}>
 
@@ -14,10 +31,10 @@ const Conversation = () => {
         <Header/>
         {/* Msg */}
         <Box className='scrollbar' width={"100%"} sx={{flexGrow:1, height:'100%', overflowY:'scroll'}}>
-        <Message menu={true}/>
+        <Message menu={true}  ref={message} messageObj={messageObj}  />
         </Box>
         {/* Chat footer */}
-       <Footer/>
+       <Footer toMessage={toMessage}/>
     </Stack>
   )
 }

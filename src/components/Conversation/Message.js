@@ -1,13 +1,33 @@
 import { Box, Stack } from '@mui/material'
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Chat_History} from '../../data'
 import { DocMsg, LinkMsg, MediaMsg, ReplyMsg, TextMsg, TimeLine } from './MsgTypes';
+import { useState } from 'react';
+import { useRef } from 'react';
 
-const Message = ({menu}) => {
+const Message = ({menu,messageObj}) => {
+  console.log('messageObj',messageObj);
+  const [chatList,setChatList] = useState(Chat_History)
+  const messageRef = useRef(null)
+  useEffect(()=>
+    {
+     messageObj && setChatList([...chatList,messageObj]);
+    //  chatBox.scrollTop = chatBox.scrollHeight;
+    // console.log('chatBox--->',messageRef?.current);
+    },
+     [messageObj]
+  )
+  useEffect(()=>{
+    if(messageRef.current){
+      messageRef.current.scrollTop = messageRef.current.scrollHeight
+    }
+  },[chatList.length])
   return (
-    <Box p={3}>
+    <div ref={messageRef}>
+
+    <Box p={3} >
         <Stack spacing={3}>
-            {Chat_History.map((el)=>{
+            {chatList.map((el)=>{
                 switch (el.type) {
                     case 'divider':
                       return <TimeLine el={el}/>
@@ -35,6 +55,8 @@ const Message = ({menu}) => {
             })}
         </Stack>
     </Box>
+    </div>
+
   )
 }
 
