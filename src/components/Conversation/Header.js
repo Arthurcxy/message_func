@@ -15,9 +15,7 @@ const Header = () => {
     <Box p={2} sx={{ width:'100%', backgroundColor: theme.palette.mode === 'light' ? '#F8FAFF' : theme.palette.background.paper, boxShadow:'0px 0px 2px rgba(0,0,0,0.25)'}}>
     <Stack alignItems={'center'} direction='row' justifyContent={'space-between'}
     sx={{width:'100%', height:'100%'}}>
-        <Stack onClick={()=>{
-            dispatch(ToggleSidebar());
-        }} direction={'row'} spacing={2}>
+        <Stack  direction={'row'} spacing={2}>
             <Box>
                 <StyledBadge  overlap="circular"
                 anchorOrigin={{ // position
@@ -43,7 +41,9 @@ const Header = () => {
                 <MagnifyingGlass/>
             </IconButton>
             <Divider orientation='vertical' flexItem/>
-            <IconButton>
+            <IconButton onClick={()=>{
+            dispatch(ToggleSidebar());
+        }}>
                 <MoreVertIcon/>
             </IconButton>
         </Stack>
