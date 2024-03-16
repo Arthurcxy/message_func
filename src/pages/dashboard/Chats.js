@@ -7,10 +7,20 @@ import React, { useState } from 'react';
 import {ChatList} from '../../data';
 import { Search, SearchIconWrapper, StyledInputBase } from '../../components/Search';
 import ChatElement from '../../components/ChatElement';
-
+import { useDispatch } from 'react-redux';
+import { UpdateUserName,UpdateUserAvatar,UpdateChatArray } from '../../redux/slices/app';
 const Chats = () => {
   const theme = useTheme();
   const [active,setActive] = useState(0)
+  const dispatch = useDispatch()
+
+  const resetChat= () =>{
+    console.log('jinlail');
+    dispatch(UpdateChatArray([]));
+    dispatch(UpdateUserName());
+    dispatch(UpdateUserAvatar());
+
+  }
   return (    
     <Box sx={{
       position: "relative", width: 330, 
@@ -39,8 +49,8 @@ const Chats = () => {
                 color: theme.palette.spero.main, // 使用自定义颜色
               }}
             >
-              <BorderColorIcon />
-            </IconButton>
+              <BorderColorIcon onClick={()=>resetChat()} />
+          </IconButton>
         </Stack>
 
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
