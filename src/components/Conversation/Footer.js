@@ -4,7 +4,7 @@ import { styled, useTheme } from "@mui/material/styles";
 import { LinkSimple, PaperPlaneTilt, Smiley,Camera, File, Image, Sticker, User } from 'phosphor-react';
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
-
+import SendIcon from '@mui/icons-material/Send';
 const StyledInput = styled(TextField)(({ theme }) => ({
     "& .MuiInputBase-input": {
       paddingTop: '12px',
@@ -123,11 +123,12 @@ const Footer = (props) => {
             <ChatInput setMessageObj={setMessageObj} ref={chatRef}  />
         </Stack>
         
-        <Box onClick={()=>sendMessage()} sx={{height:48, width: 48, backgroundColor:theme.palette.primary.main, 
+        <Box onClick={()=>sendMessage()} sx={{height:48, width: 48,  
         borderRadius: 1.5}}>
             <Stack sx={{height:'100%', width:'100%', alignItems:'center', justifyContent:'center'}}>
                 <IconButton>
-                    <PaperPlaneTilt color='#fff'/>
+                    {/* <PaperPlaneTilt color='#fff'/> */}
+                    <SendIcon style={{fontSize:'24px'}}></SendIcon>
                 </IconButton>
             </Stack>
             

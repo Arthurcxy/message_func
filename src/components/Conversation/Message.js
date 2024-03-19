@@ -12,6 +12,7 @@ const Message = ({menu,messageObj}) => {
   // dispatch(UpdateChatArray(Chat_History))
   const { chatArray } = useSelector((store)=>store.app);// access our store inside component
   console.log('chatArray',chatArray);
+  // let charNewArray = chatArray || []
   const [chatList,setChatList] = useState(chatArray || [])
   const messageRef = useRef(null)
   useEffect(()=>
@@ -23,22 +24,22 @@ const Message = ({menu,messageObj}) => {
      [messageObj]
   )
   useEffect(()=>{
-    if(chatArray.length===0){
+    if(chatArray?.length===0){
       setChatList([])
     }
     console.log('chatArray----?',chatArray);
   },[chatArray])
-  // useEffect(()=>{
+  useEffect(()=>{
     
-  //   if(messageRef.current){
-  //     messageRef.current.scrollTop = messageRef.current.scrollHeight
-  //   }
-  // },[chatList.length])
+    if(messageRef.current){
+      messageRef.current.scrollTop = messageRef.current.scrollHeight
+    }
+  },[chatList.length])
   return (
     <div ref={messageRef}>
       <Box p={3} >
           <Stack spacing={3}>
-              {chatList.length > 0 && chatList.map((el)=>{
+              {chatList.length > 0 && chatList.map((el,index)=>{
                   switch (el.type) {
                       case 'divider':
                         return <TimeLine el={el}/>
@@ -56,7 +57,7 @@ const Message = ({menu,messageObj}) => {
                                   return <ReplyMsg el={el} menu={menu}/>
                           
                               default:
-                                return <TextMsg el={el} menu={menu}/>
+                                return <TextMsg key={index} el={el} menu={menu}/>
                           }
                           break;
                   
