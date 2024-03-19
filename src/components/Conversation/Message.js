@@ -22,11 +22,12 @@ const Message = ({menu,messageObj}) => {
     },
      [messageObj]
   )
-  // useEffect(()=>{
-  //   if(chatArray?.length===0){
-  //     setChatList([])
-  //   }
-  // },[chatArray])
+  useEffect(()=>{
+    if(chatArray.length===0){
+      setChatList([])
+    }
+    console.log('chatArray----?',chatArray);
+  },[chatArray])
   // useEffect(()=>{
     
   //   if(messageRef.current){
