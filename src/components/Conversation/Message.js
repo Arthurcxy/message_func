@@ -12,7 +12,7 @@ const Message = ({menu,messageObj}) => {
   // dispatch(UpdateChatArray(Chat_History))
   const { chatArray } = useSelector((store)=>store.app);// access our store inside component
   console.log('chatArray',chatArray);
-  const [chatList,setChatList] = useState(chatArray)
+  const [chatList,setChatList] = useState(chatArray || [])
   const messageRef = useRef(null)
   useEffect(()=>
     {
@@ -22,11 +22,11 @@ const Message = ({menu,messageObj}) => {
     },
      [messageObj]
   )
-  useEffect(()=>{
-    if(chatArray.length===0){
-      setChatList([])
-    }
-  },[chatArray])
+  // useEffect(()=>{
+  //   if(chatArray?.length===0){
+  //     setChatList([])
+  //   }
+  // },[chatArray])
   // useEffect(()=>{
     
   //   if(messageRef.current){
