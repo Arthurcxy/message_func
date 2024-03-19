@@ -52,6 +52,9 @@ const ChatInput = forwardRef( ({setMessageObj},ref) =>{
     useImperativeHandle(ref,()=>({
         clear:(val)=>{
            setInputValue2(val)
+       },
+       changeOpen:(val)=>{
+        setOpenAction(val)
        }
    }))
  
@@ -75,13 +78,13 @@ const ChatInput = forwardRef( ({setMessageObj},ref) =>{
                       
                     ))}
                 </Stack>
-                <InputAdornment>
+                {/* <InputAdornment>
                     <IconButton onClick={()=>{
                         setOpenAction((prev)=>!prev)
                     }}>
                         <LinkSimple/>
                     </IconButton>
-                </InputAdornment>
+                </InputAdornment> */}
             </Stack>
             ,
             endAdornment: <InputAdornment>
@@ -122,7 +125,13 @@ const Footer = (props) => {
             </Box> 
             <ChatInput setMessageObj={setMessageObj} ref={chatRef}  />
         </Stack>
-        
+        <InputAdornment>
+            <IconButton onClick={()=>{
+                chatRef?.current?.changeOpen((prev)=>!prev)
+            }}>
+                <LinkSimple/>
+            </IconButton>
+        </InputAdornment>
         <Box onClick={()=>sendMessage()} sx={{height:48, width: 48,  
         borderRadius: 1.5}}>
             <Stack sx={{height:'100%', width:'100%', alignItems:'center', justifyContent:'center'}}>
