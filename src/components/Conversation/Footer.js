@@ -14,31 +14,31 @@ const StyledInput = styled(TextField)(({ theme }) => ({
 
   const Actions = [
     {
-        color:'#4da5fe',
+        color:'#5955B3',
         icon: <Image size={24}/>,
         y:102,
         title:'Photo/Video'
     },
     {
-        color:'#1b8cfe',
+        color:'#5955B3',
         icon: <Sticker size={24}/>,
         y:172,
         title:'Stickers'
     },
     {
-        color:'#0172e4',
+        color:'#5955B3',
         icon: <Camera size={24}/>,
         y:242,
         title:'Image'
     },
     {
-        color:'#0159b2',
+        color:'#5955B3',
         icon: <File size={24}/>,
         y:312,
         title:'Document'
     },
     {
-        color:'#013f7f',
+        color:'#5955B3',
         icon: <User size={24}/>,
         y:382,
         title:'Contact'
@@ -71,7 +71,7 @@ const ChatInput = forwardRef( ({setMessageObj},ref) =>{
                 <Stack sx={{position:'relative', display: openAction ? 'inline-block' : 'none'}}>
                     {Actions.map((el)=>(
                         <Tooltip placement='right' title={el.title}>
-                            <Fab sx={{position:'absolute', top: -el.y, backgroundColor: el.color}}>
+                            <Fab sx={{position:'absolute', top: -el.y, backgroundColor: el.color, '&:hover': {backgroundColor: el.color}}}>
                                 {el.icon}
                             </Fab>
                         </Tooltip>
