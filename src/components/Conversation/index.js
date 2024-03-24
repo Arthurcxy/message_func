@@ -8,7 +8,7 @@ import Message from './Message';
 const Conversation = (props) => {
   console.log('props----->',props);
     const theme = useTheme();
-    const message = useRef()
+    // const message = useRef()
     const [messageObj,setMessageObj] = useState()
     const pushMessage = (value)=>{
 
@@ -22,7 +22,6 @@ const Conversation = (props) => {
           outgoing: true,
         },
       )
-      console.log(message?.current?.test,value);
     }
   return (
     <Stack height={'100%'} maxHeight={'100vh'} width={'auto'}>
@@ -31,7 +30,7 @@ const Conversation = (props) => {
         <Header/>
         {/* Msg */}
         <Box className='scrollbar' width={"100%"} sx={{flexGrow:1, height:'100%', overflowY:'scroll'}}>
-        <Message menu={true}  ref={message} messageObj={messageObj}  />
+        <Message menu={true}  messageObj={messageObj}  />
         </Box>
         {/* Chat footer */}
        <Footer toMessage={toMessage}/>
