@@ -69,8 +69,8 @@ const ChatInput = forwardRef( ({setMessageObj},ref) =>{
             startAdornment: 
             <Stack sx={{width:'max-content'}}>
                 <Stack sx={{position:'relative', display: openAction ? 'inline-block' : 'none'}}>
-                    {Actions.map((el)=>(
-                        <Tooltip placement='right' title={el.title}>
+                    {Actions.map((el,index)=>(
+                        <Tooltip placement='right' title={el.title} key={index}>
                             <Fab sx={{position:'absolute', top: -el.y, backgroundColor: el.color, '&:hover': {backgroundColor: el.color}}}>
                                 {el.icon}
                             </Fab>
@@ -86,14 +86,7 @@ const ChatInput = forwardRef( ({setMessageObj},ref) =>{
                     </IconButton>
                 </InputAdornment> */}
             </Stack>
-            ,
-            endAdornment: <InputAdornment>
-            {/* <IconButton onClick={()=>{
-                setOpenPicker((prev)=> !prev);
-            }}>
-                <Smiley/>
-            </IconButton> */}
-            </InputAdornment>
+          
         }}/>
     )
 })
@@ -125,13 +118,11 @@ const Footer = (props) => {
             </Box> 
             <ChatInput setMessageObj={setMessageObj} ref={chatRef}  />
         </Stack>
-        <InputAdornment>
-            <IconButton onClick={()=>{
+        <IconButton onClick={()=>{
                 chatRef?.current?.changeOpen((prev)=>!prev)
             }}>
                 <LinkSimple/>
-            </IconButton>
-        </InputAdornment>
+        </IconButton>
         <Box onClick={()=>sendMessage()} sx={{height:48, width: 48,  
         borderRadius: 1.5}}>
             <Stack sx={{height:'100%', width:'100%', alignItems:'center', justifyContent:'center'}}>
