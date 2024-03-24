@@ -15,7 +15,6 @@ const Chats = () => {
   const dispatch = useDispatch()
 
   const resetChat= () =>{
-    console.log('jinlail');
     dispatch(UpdateChatArray([]));
     dispatch(UpdateUserName());
     dispatch(UpdateUserAvatar());
@@ -45,11 +44,12 @@ const Chats = () => {
             <StyledInputBase placeholder='Search...' inputProps={{ "aria-label": "search" }} />
           </Search>
           <IconButton 
+              onClick={()=>resetChat()}
               sx={{ 
                 color: theme.palette.spero.main, // 使用自定义颜色
               }}
             >
-              <BorderColorIcon onClick={()=>resetChat()} />
+              <BorderColorIcon  />
           </IconButton>
         </Stack>
 
@@ -106,8 +106,8 @@ const Chats = () => {
               <Typography variant='subtitle2' sx={{color:"#676767"}}>
               THERAPISTS
               </Typography>
-              {ChatList.filter((el)=> el.pinned).map((el)=>{
-                return <ChatElement  {...el}/>
+              {ChatList.filter((el)=> el.pinned).map((el,index)=>{
+                return <ChatElement key={index}  {...el}/>
               })}
               
             </Stack>}
@@ -116,8 +116,8 @@ const Chats = () => {
             <Typography variant='subtitle2' sx={{color:"#676767"}}>
             PATIENTS
             </Typography>
-            {ChatList.filter((el)=> !el.pinned).map((el)=>{
-              return <ChatElement {...el}/>
+            {ChatList.filter((el)=> !el.pinned).map((el,index)=>{
+              return <ChatElement key={index} {...el}/>
             })}
             
           </Stack> }
