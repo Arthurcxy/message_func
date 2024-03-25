@@ -6,7 +6,6 @@ import Footer from './Footer';
 import Message from './Message';
 
 const Conversation = (props) => {
-  console.log('props----->',props);
     const theme = useTheme();
     // const message = useRef()
     const [messageObj,setMessageObj] = useState()

@@ -7,11 +7,9 @@ import { useRef } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { UpdateChatArray } from '../../redux/slices/app';
 const Message = ({menu,messageObj}) => {
-  console.log('messageObj',messageObj);
   const dispatch = useDispatch()
   // dispatch(UpdateChatArray(Chat_History))
   const { chatArray } = useSelector((store)=>store.app);// access our store inside component
-  console.log('chatArray',chatArray);
   // let charNewArray = chatArray || []
   const [chatList,setChatList] = useState(chatArray || [])
   const messageRef = useRef(null)
@@ -27,7 +25,6 @@ const Message = ({menu,messageObj}) => {
     if(chatArray?.length===0){
       setChatList([])
     }
-    console.log('chatArray----?',chatArray);
   },[chatArray])
   useEffect(()=>{
     
