@@ -12,20 +12,22 @@ function App() {
 
     const sb = SendbirdChat.init({
         appId: REACT_APP_ID,
-        modules: [new GroupChannelModule()]
+        modules: [new GroupChannelModule()],
+        token:'22fa8ed3271e9747e28febc618863a0801324697'
     });
     console.log(sb);
     sb.connect(REACT_APP_USER_ID, REACT_APP_ACCESS_TOKEN);
     return (
         <ThemeProvider>
-            <SendbirdProvider
+          {' '}
+                <Router  />{' '}
+            {/* <SendbirdProvider
                 appId={REACT_APP_ID}
                 userId={REACT_APP_USER_ID}
                 nickname={REACT_APP_NICKNAME}
                 accessToken={REACT_APP_ACCESS_TOKEN}>
-                {' '}
-                <Router  />{' '}
-            </SendbirdProvider>
+                
+            </SendbirdProvider> */}
         </ThemeProvider>
     );
 }
