@@ -19,7 +19,7 @@ function App() {
     sb.connect(REACT_APP_USER_ID, REACT_APP_ACCESS_TOKEN).then(res=>{
         console.log(res);
         if(res.isActive){
-            message.success('Sendbird 连接成功：'+res.nickname )
+            message.success('Welcome Back' )
         }else{
             message.error('Sendbird 连接失败: ');
         }
