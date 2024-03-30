@@ -10,7 +10,8 @@ const initialState = {
     },
     chatArray:Chat_History,
     name: faker.name.fullName(),
-    avatar:faker.image.avatar()
+    avatar:faker.image.avatar(),
+    scheduleOpen:false,
 }
 
 // create slice
@@ -34,6 +35,9 @@ const slice = createSlice({
         },
         updateUserAvatar(state,action){
             state.avatar = action.payload.avatar
+        },
+        changeSchedule(state,action){
+            state.scheduleOpen = !state.scheduleOpen
         }
     }
 });
@@ -45,6 +49,11 @@ export default slice.reducer;
 export function ToggleSidebar (){
     return async () =>{
         dispatch(slice.actions.toggleSidebar());
+    }
+}
+export function ChangeSchedule (){
+    return async () =>{
+        dispatch(slice.actions.changeSchedule());
     }
 }
 
