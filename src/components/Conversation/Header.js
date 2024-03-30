@@ -1,18 +1,21 @@
 import { Avatar, Box, Typography, IconButton, Divider, Stack } from '@mui/material';
 import { MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { faker } from '@faker-js/faker';
 import StyledBadge from '../StyledBadge';
 import { ToggleSidebar } from '../../redux/slices/app';
 import { useDispatch, useSelector } from 'react-redux';
-import { UpdateUserName, UpdateUserAvatar } from '../../redux/slices/app';
+import { UpdateUserName, UpdateUserAvatar,ChangeSchedule } from '../../redux/slices/app';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import ScheduleModel from '../scheduleModel';
 const Header = () => {
     const dispatch = useDispatch();
     const { name, avatar } = useSelector(store => store.app); // access our store inside component
     const theme = useTheme();
+    const [open, setOpen] = useState(true);
+    const scheduleRef =useRef(null);
     //   const [name,setNamr] = useState(faker.name.fullName())
     //   const [avatar,setAvatar] = useState(faker.image.avatar())
     return (
@@ -59,8 +62,17 @@ const Header = () => {
                     {/* <IconButton>
                         <MagnifyingGlass />
                     </IconButton> */}
-                    <div style={{backgroundColor:'#E6F8EF',color:'#00BB61 ',padding:'5px 8px',display:'flex'}}>
-                        <CalendarMonthIcon style={{fontSize:'24px',marginRight:'5px'}}></CalendarMonthIcon>
+                    <div
+                        style={{
+                            backgroundColor: '#E6F8EF',
+                            color: '#00BB61 ',
+                            padding: '5px 8px',
+                            display: 'flex',
+                            cursor:'pointer'
+                        }}
+                        onClick={() => scheduleRef?.current?.changeOpen()}>
+                        <CalendarMonthIcon
+                            style={{ fontSize: '24px', marginRight: '5px' }}></CalendarMonthIcon>
                         <div>Schedule oppointment</div>
                     </div>
                     <Divider
@@ -75,6 +87,7 @@ const Header = () => {
                     </IconButton>
                 </Stack>
             </Stack>
+            <ScheduleModel open={open} ref={scheduleRef}></ScheduleModel>
         </Box>
     );
 };
